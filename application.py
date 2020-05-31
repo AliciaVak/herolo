@@ -23,6 +23,9 @@ def get_all_unread_msg():
 def read_msg():
     pass
 
+@app.route("/")
+def home():
+    return "Hello World!"
 
 
 if __name__ == '__main__':
