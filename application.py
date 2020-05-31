@@ -23,7 +23,7 @@ def get_all_msg():
     return jsonify(user_msgs)
 
 
-@app.route('/api/get_all_unread_msg', methods=['POST'])
+@app.route('/api/get_all_unread_msg', methods=['GET'])
 def get_all_unread_msg():
     arguments = json.loads(request.get_data())
     user = arguments["user"]
@@ -47,11 +47,6 @@ def delete_msg():
     msg_id = arguments["message_id"]
     response = db_api.delete_msg(user, msg_id)
     return jsonify(response)
-
-
-@app.route("/")
-def home():
-    return "Hello World!"
 
 
 if __name__ == '__main__':
