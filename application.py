@@ -23,6 +23,12 @@ def get_all_unread_msg():
 def read_msg():
     pass
 
+
+@app.route('/api/delete_msg', methods=['POST'])
+def delete_msg():
+    return "Delete message"
+
+
 @app.route("/")
 def home():
     return "Hello World!"
@@ -31,6 +37,4 @@ def home():
 if __name__ == '__main__':
     app.run()
 
-@app.route('/api/delete_msg', methods=['POST'])
-def delete_msg():
-    pass
+
