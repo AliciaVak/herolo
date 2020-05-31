@@ -7,6 +7,7 @@ gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+pymongo==3.10.1
 six==1.15.0
 virtualenv==20.0.21
 Werkzeug==1.0.1
