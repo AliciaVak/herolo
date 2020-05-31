@@ -24,7 +24,7 @@ def read_msg():
     pass
 
 
-@app.route('/api/delete_msg', methods=['POST'])
+@app.route('/api/delete_msg')
 def delete_msg():
     return "Delete message"
 
