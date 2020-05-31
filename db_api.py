@@ -31,7 +31,11 @@ def get_all_user_unread_msgs(user):
 
 
 def read_msg(user, msg_id):
-    msg = collection.find_one({"_id": ObjectId(msg_id)})
+    try:
+        msg = collection.find_one({"_id": ObjectId(msg_id)})
+    except Exception:
+        return {"error": "given id is wrong"}
+
     if msg:
         if msg["receiver"] == user:
             if msg["read"] == "false":
@@ -45,11 +49,15 @@ def read_msg(user, msg_id):
 
 
 def delete_msg(user, msg_id):
-    msg = collection.find_one({"_id": ObjectId(msg_id)})
+    try:
+        msg = collection.find_one({"_id": ObjectId(msg_id)})
+    except Exception:
+        return {"error": "given id is wrong"}
+
     if msg:
         if msg["receiver"] == user or msg["sender"] == user:
-            ret = collection.delete_one({"_id": msg_id})
-            if ret:
+            ret = collection.delete_one({"_id": ObjectId(msg_id)})
+            if ret.deleted_count == 1:
                 return "Message successfully deleted"
 
         return "The given user cant delete this message"
