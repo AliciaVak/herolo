@@ -24,6 +24,10 @@ def read_msg():
     pass
 
 
+
+if __name__ == '__main__':
+    app.run()
+
 @app.route('/api/delete_msg', methods=['POST'])
 def delete_msg():
     pass
