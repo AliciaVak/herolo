@@ -49,6 +49,11 @@ def delete_msg():
     return jsonify(response)
 
 
+@app.route("/")
+def home():
+    return "Messages App"
+
+
 if __name__ == '__main__':
     app.run()
 

@@ -2,7 +2,6 @@ from pymongo import MongoClient
 from bson import ObjectId
 import os
 
-# MONGO_URL = "mongodb+srv://dbMessages:8487@cluster0-gv270.mongodb.net/test?retryWrites=true&w=majority"
 MONGO_URL = os.environ.get('MONGO_URL')
 cluster = MongoClient(MONGO_URL)
 db = cluster["messagesApp"]
